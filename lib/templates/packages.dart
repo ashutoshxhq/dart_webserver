@@ -1,6 +1,6 @@
 import 'package:mustache_template/mustache.dart';
 
-String Packages() {
+String PackagesTemplate() {
   var source = '''
 	  {{# names }}
             <h1>{{ lastname }}, {{ firstname }}</h1>

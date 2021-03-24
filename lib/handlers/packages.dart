@@ -3,19 +3,19 @@ import 'package:dart_webserver/templates/packages.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
-class Pages {
+class Packages {
   Future<Response> _getPackages(Request request) async {
-    return Response.ok(Packages(), headers: {'Content-Type':'text/html'});
+    return Response.ok(PackagesTemplate(), headers: {'Content-Type':'text/html'});
   }
   Future<Response> _getPackage(Request request, String name) async {
-    return Response.ok(Package(name), headers: {'Content-Type':'text/html'});
+    return Response.ok(PackageTemplate(name), headers: {'Content-Type':'text/html'});
   }
 
   Router get router {
     final router = Router();
 
-    router.get('/packages', _getPackages);
-    router.get('/packages/<name>', _getPackage);
+    router.get('/', _getPackages);
+    router.get('/<name>', _getPackage);
 
     router.all('/<ignored|.*>', (Request request) => Response.notFound('null'));
 
