@@ -53,7 +53,7 @@ class Api {
 }
 
 // Run shelf server and host a [Service] instance on port 8080.
-void main() async {
+void StartWebServer() async {
   final service = Service();
   final server = await shelf_io.serve(service.handler, 'localhost', 8080);
   print('Server running on localhost:${server.port}');
